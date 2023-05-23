@@ -13,3 +13,17 @@
 3. After rendering, React invokes the callback function and performs any specified side effects.
 4. If a dependency array is provided, React re-invokes the callback when the dependencies change.
 5. The cleanup function returned from useEffect is executed before re-invoking the effect or when the component unmounts.
+
+### useEffect with Dependencies
+- Dependencies help in re-evelute callback function (not a re-render) when any dependencies change.
+```js
+// let's say we have form validation logic that change html button disable props we want to check that logic when the login inputs change.
+  useEffect(() => {
+    setFormIsValid(
+      enteredEmail.includes('@') && enteredPassword.trim().length > 6
+    );
+  },[enteredEmail,enteredPassword])
+```
+- here ,when enteredEmail or enteredPassword state change we check form validation logic.
+- if logic true => setFormValid(true).
+- else nothing. 
