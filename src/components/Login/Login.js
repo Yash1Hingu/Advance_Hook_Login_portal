@@ -31,21 +31,24 @@ const Login = (props) => {
   const [emailState, dispatchEmail] = useReducer(emailReducer,
     {
       value: '',
-      isValid: true
+      isValid: null
     }
   );
   const [passwordState, dispatchPassword] = useReducer(passwordReducer,
     {
       value: '',
-      isValid: true
+      isValid: null
     }
   )
+
+  const { isValid: emailIsvaild } = emailState;
+  const { isValid: passwordIsvaild } = passwordState;
 
   useEffect(() => {
     const indetifier = setTimeout(() => {
       console.log("Form Vaildating!")
       setFormIsValid(
-        emailState.isValid && passwordState.isValid
+        emailIsvaild && passwordIsvaild
       );
     }, 500);
 
@@ -53,7 +56,7 @@ const Login = (props) => {
       console.log("CLEANUP");
       clearTimeout(indetifier);
     }
-  }, [emailState, passwordState])
+  }, [emailIsvaild, passwordIsvaild])
 
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
