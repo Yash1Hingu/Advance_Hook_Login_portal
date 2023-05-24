@@ -26,4 +26,32 @@
 ```
 - here ,when enteredEmail or enteredPassword state change we check form validation logic.
 - if logic true => setFormValid(true).
-- else nothing. 
+- else nothing.
+
+## useReducer
+- use for manage complex states.
+- useReducer only use for complex state mangements otherwise useState is better.
+### Syntax : 
+```js
+import { useReducer } from 'react-dom';
+const [inputState,dispetachInputFunction] = useReducer(inputReducerFunction,initialValues,initialFunction);
+```
+#### inputState : 
+- it is latest snapshot of input values.
+#### dispetachInputFunction :
+- updating call Function for values and state.
+#### inputReducerFunction :
+- updating Function when dispetachInputFunction call
+- it recieve two arguments : (prevState,action) => {};
+- in action we pass anything i.e. string,object,number.
+- prevState containe previous state values.
+- it return new snapshot of state.
+#### initialValues : 
+- it initiat Values for our state variable.
+#### initialFuncton : 
+- it use when our Initiat Values Very Complex i.e. getting data from server.
+#### example :
+```js
+// SEE COMMIT -->  (ADD -- emailState useReducer);
+```
+
