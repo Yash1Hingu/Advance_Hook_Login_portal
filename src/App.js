@@ -30,10 +30,13 @@ function App() {
   return (
     <LoginContext.Provider
       value={
-        { isLoggedIn: isLoggedIn }
+        {
+          isLoggedIn: isLoggedIn,
+          onLogout : loginHandler
+        }
       }
     >
-      <MainHeader onLogout={logoutHandler} />
+      <MainHeader/>
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
