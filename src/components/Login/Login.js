@@ -49,14 +49,14 @@ const Login = (props) => {
 
   useEffect(() => {
     const indetifier = setTimeout(() => {
-      console.log("Form Vaildating!")
+      // console.log("Form Vaildating!")
       setFormIsValid(
         emailIsvaild && passwordIsvaild
       );
     }, 500);
 
     return () => {
-      console.log("CLEANUP");
+      // console.log("CLEANUP");
       clearTimeout(indetifier);
     }
   }, [emailIsvaild, passwordIsvaild])
